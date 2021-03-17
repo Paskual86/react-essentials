@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App authorize={true} />
   </React.StrictMode>,
   document.getElementById('root')
 );
