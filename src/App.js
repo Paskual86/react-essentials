@@ -1,21 +1,19 @@
+import React, { useState } from 'react';
 import './App.css';
-import restaurant from './FoodImage1.jpg'
 
-function GrantedComponent(){
-  return <div>Granted component</div>
-}
 
-function EveryoneComponent(){
-  return <div>Everyone component</div>
-}
+function App() {
+  const [emotion, setEmotion] = useState("happy");
 
-function App(props) {
-
-  if(props.authorize){
-    return GrantedComponent();
-  }else{
-    return EveryoneComponent();
-  }
+  return (<>
+    <h1>Current emotion is {emotion}</h1>
+    <button onClick={() => setEmotion("frustrated")}>
+      Frustrate
+    </button>
+    <button onClick={() => setEmotion("enthusiastic")}>
+      Enthuse
+    </button>
+  </>);
 }
 
 export default App;
