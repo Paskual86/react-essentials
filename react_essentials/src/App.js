@@ -1,33 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+function App({login}) {
+  const [data, setData] = useState(null);
 
-function App() {
-  const [emotion, setEmotion] = useState("happy");
-  const [secondary, setSecondary] = useState("tired");
-  useEffect(() => {
-    console.log(`It's ${emotion} around here`);
-  }, [emotion]);
+  useEffect(()=> {
+    fetch(`https://api.github.com/users/${login}`)
+    .then((response) => response.json())
+    .then(setData);    
+  }, []);
 
-  useEffect(() => {
-    console.log(`It's ${secondary} around here`);
-  }, [secondary]);
-  
-  return (<>
-    <h1>Current emotion is {emotion} and {secondary}</h1>
-    <button onClick={() => setEmotion("frustrated")}>
-      Frustrate
-    </button>
-    <button onClick={() => setSecondary("Grappy")}>
-      Make Grab
-    </button>
-    <button onClick={() => setSecondary("Tired")}>
-      Make tired
-    </button>
-    <button onClick={() => setEmotion("enthusiastic")}>
-      Enthuse
-    </button>
-  </>);
+  if (data) {
+    return(
+      <div>
+        <h1>{data.name}</h1>
+        <p>{data.location}</p>
+        <img alt={data.login} src={data.avatar_url}></img>
+      </div>
+    );
+    //return <div>{JSON.stringify(data)}</div>;
+  }
+
+  return <div>No User Available</div>
 }
 
 export default App;
