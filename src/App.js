@@ -2,6 +2,7 @@ import './App.css';
 import ListadoNombres from './components/ListadoNombres'
 import Welcome from './components/Welcome';
 import Card from './components/Card';
+import Base from './components/Base';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +14,8 @@ function App() {
   return (
     <Router>
       <Link to="/"> <h2>Base</h2></Link>
-      <Link to="/inicio"><h2>Card</h2></Link>
+      <Link to="/inicio"><h2>Welcome</h2></Link>
+      <Link to="/card"><h2>Card</h2></Link>
       <Link to="/listado"><h2>Listado de Nombres</h2></Link>
 
       <Switch>
@@ -24,9 +26,19 @@ function App() {
         <Route path="/listado">
           <ListadoNombres></ListadoNombres>
         </Route>
-        <Route path="/">
+        <Route path="/card">
           <Card imagen="https://picsum.photos/id/237/200/300" titulo="Primer Imagen" texto="Imagen Predeterminada"></Card>
         </Route>
+        <Route path="/:param1/:param2">
+          <Base></Base>
+        </Route>
+        <Route path="/:param1">
+          <Base></Base>
+        </Route>
+        <Route path="/">
+          <Base></Base>
+        </Route>
+
       </Switch>
     </Router>
   );
