@@ -12,7 +12,6 @@ function Base()  {
     
     const {param1, param2} = useParams();
 
-
     return (
 
         <div>
