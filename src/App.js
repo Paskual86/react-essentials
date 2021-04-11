@@ -12,9 +12,9 @@ import {
 function App() {
   return (
     <Router>
-      <Link to="/">Base</Link>
-      <Link to="/inicio">Card</Link>
-      <Link to="/listado">Listado de Nombres</Link>
+      <Link to="/"> <h2>Base</h2></Link>
+      <Link to="/inicio"><h2>Card</h2></Link>
+      <Link to="/listado"><h2>Listado de Nombres</h2></Link>
 
       <Switch>
         <Route path="/inicio">
